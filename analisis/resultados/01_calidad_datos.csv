@@ -1,0 +1,16 @@
+,tipo,nulos,pct_nulos,unicos
+sexo,str,0,0.0,2
+edad,int64,0,0.0,53
+institucion,str,0,0.0,4
+meses_atraso,int64,0,0.0,108
+deuda,float64,0,0.0,109
+condicion,str,4,0.9,4
+grado,str,4,0.9,4
+fecha_incorp,datetime64[us],4,0.9,75
+calidad_emp,str,0,0.0,4
+tramo_atraso,category,0,0.0,6
+grupo_edad,category,0,0.0,5
+anio_incorp,float64,4,0.9,14
+cuota_implicita,float64,0,0.0,109
+sin_labor,str,0,0.0,2
+inactivo,float64,4,0.9,2

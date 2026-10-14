@@ -1,0 +1,11 @@
+,coef,IC95_inf,IC95_sup,p_valor,efecto_%_sobre_meses
+Intercept,2.6522,2.2604,3.0439,0.0,1318.5
+C(sexo)[T.Mujer],0.0187,-0.1462,0.1835,0.8243,1.9
+"C(inst_g, Treatment('Institución Pública'))[T.Consultoría/propio]",0.2308,-0.1447,0.6063,0.2284,26.0
+"C(inst_g, Treatment('Institución Pública'))[T.Institución Privada]",0.219,-0.0048,0.4428,0.0551,24.5
+"C(inst_g, Treatment('Institución Pública'))[T.No labora]",0.5768,0.377,0.7766,0.0,78.0
+"C(condicion_g, Treatment('Inactivo'))[T.Activo]",-1.0519,-1.3902,-0.7135,0.0,-65.1
+"C(condicion_g, Treatment('Inactivo'))[T.Otra]",-0.3738,-0.7999,0.0523,0.0855,-31.2
+"C(grado_g, Treatment('Bachillerato'))[T.Licenciatura]",-0.143,-0.33,0.044,0.1339,-13.3
+"C(grado_g, Treatment('Bachillerato'))[T.Maestría/Doctorado]",0.0183,-0.3095,0.346,0.913,1.8
+edad,0.019,0.0122,0.0258,0.0,1.9

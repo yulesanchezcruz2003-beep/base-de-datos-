@@ -1,0 +1,10 @@
+,odds_ratio,IC95_inf,IC95_sup,p_valor
+Intercept,5.8036,0.9603,35.0741,0.0554
+C(sexo)[T.Mujer],0.6018,0.2861,1.266,0.1808
+"C(inst_g, Treatment('Institución Pública'))[T.Consultoría/propio]",0.0663,0.0183,0.2406,0.0
+"C(inst_g, Treatment('Institución Pública'))[T.Institución Privada]",0.6435,0.256,1.6177,0.3486
+"C(inst_g, Treatment('Institución Pública'))[T.No labora]",0.526,0.2092,1.3224,0.172
+"C(grado_g, Treatment('Bachillerato'))[T.Licenciatura]",0.4641,0.2247,0.9589,0.0381
+"C(grado_g, Treatment('Bachillerato'))[T.Maestría/Doctorado]",0.7295,0.1775,2.9978,0.6619
+edad,1.0069,0.9726,1.0425,0.6962
+meses_atraso,1.0313,1.0179,1.0449,0.0
