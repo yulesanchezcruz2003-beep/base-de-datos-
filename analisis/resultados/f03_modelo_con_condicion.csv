@@ -1,0 +1,7 @@
+,odds_ratio,IC95_inf,IC95_sup,p_valor
+grado_g: Licenciatura,1.2031,0.6615,2.188,0.5446
+grado_g: Maestría/Doctorado,0.9059,0.3068,2.6751,0.858
+cond_g: Exento (Art. 7/Honorario),0.278,0.0341,2.268,0.232
+cond_g: Inactivo,173.1336,101.3819,295.6665,0.0
+edad (+10 años),1.2338,0.962,1.5824,0.0979
+antigüedad (+1 año),0.9882,0.9219,1.0594,0.7384

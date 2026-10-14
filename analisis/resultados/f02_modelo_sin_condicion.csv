@@ -1,0 +1,5 @@
+,odds_ratio,IC95_inf,IC95_sup,p_valor
+grado_g: Licenciatura,0.5788,0.4268,0.785,0.0004
+grado_g: Maestría/Doctorado,0.7162,0.4155,1.2344,0.2294
+edad (+10 años),1.1133,0.9859,1.2572,0.0835
+antigüedad (+1 año),1.0236,0.9873,1.0613,0.2054
