@@ -1,2 +1,3 @@
 datos/
 analisis/resultados/base_limpia.csv
+__pycache__/

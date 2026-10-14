@@ -140,8 +140,8 @@ def main():
         a.barh(y, t["tasa_%"], color=COLOR)
         a.errorbar(t["tasa_%"], y, xerr=[t["tasa_%"] - t["IC95_inf_%"], t["IC95_sup_%"] - t["tasa_%"]],
                    fmt="none", ecolor="#333", capsize=3)
-        for yi, (r, k, n) in enumerate(zip(t["tasa_%"], t["morosos"], t["colegiados"])):
-            a.text(min(r + 3, 112), yi, f"{r:.0f}% ({k}/{n})", va="center", fontsize=8)
+        for yi, (r, hi, k, n) in enumerate(zip(t["tasa_%"], t["IC95_sup_%"], t["morosos"], t["colegiados"])):
+            a.text(min(hi + 2, 100), yi, f"{r:.0f}% ({k}/{n})", va="center", fontsize=8)
         a.set_yticks(y); a.set_yticklabels(t.index.astype(str)); a.invert_yaxis()
         a.axvline(n_mor / n_tot * 100, color=COLOR2, ls="--", lw=1)
         a.set(title=tit, xlabel="% de colegiados en morosidad", xlim=(0, 125))
