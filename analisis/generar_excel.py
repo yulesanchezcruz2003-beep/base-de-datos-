@@ -73,13 +73,13 @@ def celda(ws, fila, col, valor, fmt=None, entrada=False, negrita=False, fill=Non
     return x
 
 
-def grafico(ws, ancla, titulo, cats, vals, y_titulo, fmt=None, w=16, h=7.5, etiquetas=True):
+def grafico(ws, ancla, titulo, cats, vals, y_titulo, fmt=None, w=16, h=7.5, etiquetas=True, titulos=True):
     ch = BarChart()
     ch.type, ch.style = "col", 10
     ch.title, ch.legend = titulo, None
     ch.y_axis.title = y_titulo
     ch.y_axis.majorGridlines = None
-    ch.add_data(vals, titles_from_data=True)
+    ch.add_data(vals, titles_from_data=titulos)
     ch.set_categories(cats)
     ch.series[0].graphicalProperties.solidFill = "1F5F8B"
     if etiquetas:
@@ -155,7 +155,7 @@ for titulo, vc, orden in bloques:
     anclas_perfil.append((titulo, ini, fin - 1, fila))
     fila = fin + 3
 for k, (titulo, ini, fin, f_ini) in enumerate(anclas_perfil):
-    grafico(ws_p, f"I{4 + k * 17}", f"Morosos por {titulo.lower()}", Reference(ws_p, min_col=1, min_row=ini, max_row=fin),
+    grafico(ws_p, f"{'I' if k % 2 == 0 else 'S'}{4 + (k // 2) * 17}", f"Morosos por {titulo.lower()}", Reference(ws_p, min_col=1, min_row=ini, max_row=fin),
             Reference(ws_p, min_col=2, min_row=ini - 1, max_row=fin), "Personas", w=14, h=7.5)
 
 # institución: segmentación
@@ -235,7 +235,7 @@ pos = [("Condición", "I5", c0, c0 + 3), ("Incorporación", "I21", *bloques_f["I
        ("Grado", "S5", *bloques_f["Grado"]), ("Edad", "S21", *bloques_f["Edad"])]
 for factor, anc, a, b in pos:
     grafico(ws_f, anc, f"Tasa de morosidad según {factor.lower()}", Reference(ws_f, min_col=2, min_row=a, max_row=b),
-            Reference(ws_f, min_col=5, min_row=a, max_row=b), "% de colegiados morosos", fmt="0%", w=15, h=7.5)
+            Reference(ws_f, min_col=5, min_row=a, max_row=b), "% de colegiados morosos", fmt="0%", w=15, h=7.5, titulos=False)
 ws_f.column_dimensions["A"].width = 16
 
 # ================================================================== 4. Modelos
@@ -345,5 +345,10 @@ ws["A23"], ws["A23"].font = "Limitaciones: asociaciones, no causas. Sexo e insti
 ws["A24"], ws["A24"].font = "Leyenda: texto azul = dato de entrada tomado de los scripts de análisis; texto negro = fórmula.", SUB
 
 wb._sheets = [wb[n] for n in ["Resumen", "Tramos", "Perfil", "Factores", "Modelos", "Cobro", "Calidad"]]
+from openpyxl.worksheet.properties import PageSetupProperties  # noqa: E402
+for w in wb.worksheets:  # impresión/PDF: horizontal, una página de ancho
+    w.page_setup.orientation = "landscape"
+    w.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
+    w.page_setup.fitToWidth, w.page_setup.fitToHeight = 1, 1
 wb.save(SALIDA)
 print("Guardado:", SALIDA)
